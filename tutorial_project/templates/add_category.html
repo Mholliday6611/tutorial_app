@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Add Category</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Add Category {% endblock %}
+{% block body_block %}
+
 	<h1>Add Category</h1>
 	<form id='category_form' method="post" action='/add-category/'>
 		{% csrf_token %}
@@ -19,5 +18,4 @@
 		border : solid 3px" />
 	</form>
 
-</body>
-</html>
+{% endblock %}

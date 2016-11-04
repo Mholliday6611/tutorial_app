@@ -1,8 +1,7 @@
-<html>
-<head>
-	<title>Add A Page to {{category.name}}</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Add Page{% endblock %}
+{% block body_block %}
 	<h1>ADD A PAGE {{category.name}}</h1>
 	<form id="page_form" method='post' action='/category/{{slug}}/add-page/'>
 
@@ -21,5 +20,4 @@
 		border : solid 15px">
 	</form>
 
-</body>
-</html>
+{% endblock %}
