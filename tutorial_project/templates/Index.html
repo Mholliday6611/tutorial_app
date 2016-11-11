@@ -4,28 +4,49 @@
 
 {% block body_block %}
 <center>
+<div class="page-header">
 	{% if user.is_authenticated %}
 	<h1>Welcome to Tutorial App {{ user.username }}</h1>
 	{% else %}
 	<h1><font face="Comic Sans MS" color="purple">Tutorials</font></h1>
 	{% endif %}
-
+</div>
+visits = {{visits}}
+<div class="row placeholders">
+	<div class="col-xs-12 col-md-6 placeholders">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+			<h3 class="panel-title">Categories</h3>
+			</div>
+			</div>
 	{% if categories %}
+	<ul class="list-group">
 		{% for category in categories %}
-			<a href="{% url 'category' category.slug %}"><p>{{ category.name}}</p></a>
+				<li class="list-group-item"><a href="{% url 'category' category.slug %}"><p>{{ category.name}} </p></a></li>
 		{% endfor %}
-
+</ul>
 	{% else %}
-		<p>There are no categories!</p>
+		<strong>There are no categories!</strong>
 	{% endif %}
+	</div>
+<div class="row placeholders">
+	<div class="col-xs-12 col-md-6 placeholders">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+			<h3 class="panel-title">Pages</h3>
+			</div>
+			</div>
 	{% if pages %}
+	<ul class="list-group">
 		{% for page in pages %}
-		<a href="{{ page.url }}">{{page.title}}</a>
+		<li class="list-group-item"><a href="{{ page.url }}">{{page.title}}</a></li>
 		{% endfor %}
+		</ul>
 	{% else %}
-		<p> There are no Pages </p>
+		<strong> There are no Pages </strong>
 	{% endif %}
-
+</div>
+</div>
 	<br>
 	<img src="{% static 'images/photo.png' %}">
 

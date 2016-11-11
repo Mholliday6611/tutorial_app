@@ -2,9 +2,10 @@
 {% load static %}
 {% block title %}Add Page{% endblock %}
 {% block body_block %}
-	<h1>ADD A PAGE {{category.name}}</h1>
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+	<h1 class="form-signin-heading">ADD A PAGE {{category.name}}</h1>
 	<form id="page_form" method='post' action='/category/{{slug}}/add-page/'>
-
+	<h3 class="form-signin-heading" id="page_form" method="post" action='/category/{{slug}}/add-page'>ADD A PAGE to {{category.name}} </h3>
 		{% csrf_token %}
 
 		{% for hidden in form.hidden_fields %}
