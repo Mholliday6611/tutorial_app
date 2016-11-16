@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load extras %}
 {% block title %}Register{% endblock %}
 {% block body_block %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
@@ -15,9 +16,23 @@
 		<strong class="form-signin-heading">Please Register</strong>
 		{% csrf_token %}
 
-		{{ user_form.as_p }}
+		{% for field in user_form.visible_fields %}
+		<div class='form-group'>
+			{{field.errors}}<br>
+			{{field.help_text}}<br>
+			{{field.label}}
+			{{field |addcls:'form-control' }}
+		</div>
+		{% endfor %}
 
-		{{ profile_form.as_p }}
+		{% for field in profile_form.visible_fields %}
+		<div class="form-group">
+			{{field.errors}}<br>
+			{{field.help_text}}<br>
+			{{field.label}}
+			{{field |addcls:'form-control' }}
+		</div>
+		{% endfor %}
 
 		<<button class="btn btn-lg btn-primary btn-block" type="submit" value="submit"> Register</button>
 	</form>

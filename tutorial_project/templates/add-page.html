@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load extras %}
 {% block title %}Add Page{% endblock %}
 {% block body_block %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
@@ -13,9 +14,12 @@
 		{% endfor %}
 
 		{% for field in form.visible_fields %}
+		<div class='form-group'>
 			{{ field.errors}}
 			{{ field.help_text}}
-			{{field}}
+			{{field.label}}
+			{{field |addcls:'form-control'}}
+		</div>
 		{% endfor %}
 		<input type='submit' name='submit' value='Add A PAGE' style="background-color: green;
 		border : solid 15px">
