@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from models import Category, Page, UserProfile
@@ -103,7 +103,9 @@ def add_category(request):
 
 		if form.is_valid():
 			print "test"
-			form.save(commit=True)
+			cat = form.save(commit=False)
+			cat.user = request.user
+			cat.save()
 			return index(request)
 		else:
 			print form.errors
@@ -123,6 +125,7 @@ def add_page(request, category_name_slug):
 		if form.is_valid():
 			if cat:
 				page= form.save(commit=False)
+				page.user = request.user
 				page.category = cat
 				page.views = 0 
 				page.save()
@@ -179,7 +182,7 @@ def user_login(request):
 		username = request.POST.get('username')
 		password = request.POST.get('password')
 
-		user = authenticate(username = username ,password = password)
+		user = authenticate(username=username ,password=password)
 
 		if user:
 			if user.is_active:
@@ -210,3 +213,50 @@ def track_url(request):
 			except:
 				pass
 	return redirect(url)
+
+def user_profile(request, user_username):
+	context_dict = {}
+	user = User.objects.get(username=user_username)
+	profile = UserProfile.objects.get(user=user)
+	context_dict['profile'] = profile
+	context_dict['pages'] = Page.objects.filter(user=user)
+
+	return render(request, 'profile.html', context_dict)
+
+@login_required
+def edit_profile(request, user_username):
+	profile = get_object_or_404(UserProfile, user__username=user_username)
+	website = profile.website
+	pic = profile.picture
+	bio = profile.bio
+	if request.user != profile.user:
+		return HttpResponse('Access Denied Loser')
+
+	if request.method == 'POST':
+		form = UserProfileForm(data=request.POST)
+		if form.is_valid():
+			if request.POST['website'] and request.POST['website'] != '':
+				profile.website = request.POST['website']
+			else:
+				profile.website = website
+
+			if request.POST['bio'] and request.POST['bio'] != '':
+				profile.bio = request.POST['bio']
+			else:
+				profile.bio = bio
+
+			if 'picture' in request.FILES:
+				profile.picture = request.FILES['picture']
+			else:
+				profile.picture = pic
+
+			profile.save()
+
+			return user_profile(request, profile.user.username)
+
+		else:
+			print form.errors
+	else:
+		form = UserProfileForm()
+	return render(request, 'edit_profile.html', {'form':form, 'profile':profile}) 
+
