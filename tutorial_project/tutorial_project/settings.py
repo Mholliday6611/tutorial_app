@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tutorial_app',
+    'braces',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -102,3 +103,8 @@ LOGIN_URL = '/login/'
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 
+EMAIL_USE_TSL = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = '<mholliday6611@gmail.com>'
+EMAIL_HOST_PASSWORD = os.environ.get('googlepassword')

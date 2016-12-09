@@ -2,28 +2,27 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from models import Category, Page, UserProfile
-from forms import CategoryForm, PageForm, UserForm, UserProfileForm
+from forms import CategoryForm, PageForm, UserForm, UserProfileForm, ContactForm, PasswordRecoveryForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from search import run_query
-
+from suggest import get_category_list
+from django.contrib.auth.forms import PasswordChangeForm
+from django.views.generic import FormView
+from django.core.urlresolvers import reverse_lazy
+from django.contrib.auth import update_session_auth_hash
+from braces.views import LoginRequiredMixin
 
 
 # Create your views here.
 def index(request):
 	context_dict = {}
-	#request.session.set_test_cookie()
-	#if request.session.test_cookie_worked():
-	#	print ">>>TEST CHOCOLATE CHIP COOKIE WORKED"
-	#	request.session.delete_test_cookie
 	category_list = Category.objects.order_by('-likes' )[:5]
 	
 	context_dict['categories'] = category_list
 	page_list = Page.objects.order_by('-views')[:5]
 	context_dict['pages'] = page_list
-
-	#visits = int(request.COOKIES.get('visit', '1'))
 	visits = request.session.get('visits')
 
 	if not visits:
@@ -32,8 +31,6 @@ def index(request):
 
 	reset_last_visit_time = False
 
-	#if 'last_visit' in request.COOKIES:
-		#last_visit = request.COOKIES['last_visit']
 	last_visit = request.session.get('last_visit')
 	if last_visit:
 		last_visit_time = datetime.strptime(last_visit[:-7], "%Y-%m-%d %H:%M:%S")
@@ -44,12 +41,7 @@ def index(request):
 
 	else:
 		reset_last_visit_time = True
-
-	
-
 	if reset_last_visit_time:
-		#response.set_cookie('last_visit', datetime.now())
-		#response.set_cookie('visits', visits)
 		request.session['last_visit']= str(datetime.now())
 		request.session['visits'] = visits
 
@@ -260,3 +252,89 @@ def edit_profile(request, user_username):
 		form = UserProfileForm()
 	return render(request, 'edit_profile.html', {'form':form, 'profile':profile}) 
 
+@login_required
+def like_category(request):
+	cat_id= None
+	if request.method == 'GET':
+		cat_id = request.GET['category_id']
+	likes = 0
+	if cat_id:
+		cat = Category.objects.get(id=int(cat_id))
+		if cat:
+			likes = cat.likes + 1
+			cat.likes = likes
+			cat.save()
+	return HttpResponse(likes)
+
+def suggest_category(request):
+	cat_list = []
+	starts_with = ''
+	if request.method == 'GET':
+		starts_with = request.GET['suggestion']
+
+	cat_list = get_category_list(8, starts_with)
+
+	print cat_list
+
+	return render(request, 'cats.html', {'cats': cat_list})
+
+@login_required
+def auto_page_add(request):
+	cat_id = None
+	url = None
+	title = None
+	user = None
+	context_dict = {}
+
+	if request.method == 'GET':
+		cat_id = request.GET['category_id']
+		url = request.GET['url']
+		title = request.GET['title']
+		user = request.GET['user']
+
+		if cat_id and user:
+			category = Category.objects.get(id=int(cat_id))
+			user = User.objects.get(username=user)
+			p = Page.objects.get_or_create(category=category, title=title, url=url, user=user)
+
+	pages = Page.objects.filter(category=category).order_by('-views')
+
+	context_dict['pages'] = pages
+
+	return render(request, 'page_list.html', context_dict)
+
+def contact(request):
+	if request.method == 'POST':
+		form = ContactForm(request.POST)
+
+		if form.is_valid():
+			form.send_message()
+
+			return HttpResponseRedirect('/')
+		else:
+			print form.errors
+	else:
+		form = ContactForm()
+	return render(request, 'contact.html', {'form':form})
+
+class SettingsView(LoginRequiredMixin, FormView):
+	template_name = 'settings.html'
+	form_class = PasswordChangeForm
+	success_url = reverse_lazy('index')
+
+	def get_form(self, form_class):
+		return form_class(user=self.request.user, **self.get_form_kwargs())
+
+	def form_valid(self, form):
+		form.save()
+		update_session_auth_hash(self, request, form.user)
+		return super(SettubgView, self).form_valid(form)
+
+class PasswordRecoveryView(FormView):
+	template_name = "password-recovery.html"
+	form_class = PasswordRecoveryForm
+	success_url = reverse_lazy('login')
+
+	def form_valid(self, form):
+		form.reset_email()
+		return super(PasswordRecoveryView, self).form_valid(form)

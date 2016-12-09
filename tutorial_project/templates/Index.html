@@ -20,9 +20,9 @@ visits = {{visits}}
 			</div>
 			</div>
 	{% if categories %}
-	<ul class="list-group">
+		<ul class="list-group">
 		{% for category in categories %}
-				<li class="list-group-item"><a href="{% url 'category' category.slug %}"><p>{{ category.name}} </p></a></li>
+				<li class="list-group-item"><a href="/category/{{category.slug}}"><p>{{ category.name }} </p></a></li>
 		{% endfor %}
 </ul>
 	{% else %}

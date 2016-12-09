@@ -9,5 +9,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('tutorial_app.urls')), # ADD THIS NEW TUPLE!
+    	url(r'^', include('tutorial_app.urls')), # ADD THIS NEW TUPLE!
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
