@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'tutorial_app',
     'braces',
+    'storages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -67,14 +68,6 @@ TEMPLATE_DIRS = (
     TEMPLATES_PATH,
     )
 
-STATIC_PATH = os.path.join(BASE_DIR,'static')
-STATICFILES_DIRS = (
-    STATIC_PATH,
-    )
-STATIC_URL = '/static/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
@@ -108,3 +101,32 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = '<mholliday6611@gmail.com>'
 EMAIL_HOST_PASSWORD = os.environ.get('googlepassword')
+
+
+AWS_STORAGE_BUCKET_NAME = 'megamegaman'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+
+AWS_S3_CUSTOM_DOMAIN = "%s.s3.amazonaws.com" % AWS_STORAGE_BUCKET_NAME
+
+
+STATICFILES_LOCATION = 'static'
+MEDIAFILES_LOCATION = 'media'
+
+STATICFILES_STORAGE = "custom_storages.StaticStorage"
+DEFAULT_FILES_STORAGE = "custom_storages.MediaStorage"
+
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+
+AWS_HEADERS = {
+    'Access-Control-Allow_Origin' : '*'
+}
+#STATIC_PATH = os.path.join(BASE_DIR,'static')
+#STATICFILES_DIRS = (
+#    STATIC_PATH,
+#    )
+#STATIC_URL = '/static/'
+
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#MEDIA_URL = '/media/'

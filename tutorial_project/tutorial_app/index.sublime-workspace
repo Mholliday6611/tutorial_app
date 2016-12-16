@@ -1,0 +1,485 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Pas",
+				"PasswordRecoveryView"
+			],
+			[
+				"Password",
+				"PasswordRecoveryForm"
+			],
+			[
+				"get",
+				"get_random_string"
+			],
+			[
+				"clean",
+				"clean_email"
+			],
+			[
+				"Pa",
+				"PasswordChangeForm"
+			],
+			[
+				"fomr",
+				"forms"
+			],
+			[
+				"emai",
+				"email_msg"
+			],
+			[
+				"col",
+				"col-md-2"
+			],
+			[
+				"login",
+				"login_required"
+			],
+			[
+				"co",
+				"col-xs-12"
+			],
+			[
+				"img",
+				"img-responsive"
+			],
+			[
+				"pro",
+				"profile"
+			],
+			[
+				"pc",
+				"picture"
+			],
+			[
+				"F",
+				"FILES"
+			],
+			[
+				"http",
+				"HttpResponse"
+			],
+			[
+				"logi",
+				"login_required"
+			],
+			[
+				"list-",
+				"list-group-item"
+			],
+			[
+				"resu",
+				"results"
+			],
+			[
+				"searc",
+				"search_url"
+			],
+			[
+				"url",
+				"urllib2"
+			],
+			[
+				"s",
+				"search_terms"
+			],
+			[
+				"page",
+				"page_id"
+			],
+			[
+				"form",
+				"form-group"
+			],
+			[
+				"reg",
+				"register"
+			],
+			[
+				"form-sin",
+				"form-sigin-heading"
+			],
+			[
+				"con",
+				"container-fluid"
+			],
+			[
+				"style",
+				"stylesheet"
+			],
+			[
+				"se",
+				"set_cookie"
+			],
+			[
+				"cont",
+				"context_dict"
+			],
+			[
+				"last_visit",
+				"last_visit_time"
+			],
+			[
+				"last",
+				"last_visit"
+			],
+			[
+				"set",
+				"set_test_cookie"
+			],
+			[
+				"ti",
+				"title\tTag"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"log",
+				"login_required"
+			],
+			[
+				"lg",
+				"login_required"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"reu",
+				"request"
+			],
+			[
+				"H",
+				"HttpResponse"
+			],
+			[
+				"Http",
+				"HttpResponseRedirect"
+			],
+			[
+				"auth",
+				"authenticate"
+			],
+			[
+				"st",
+				"strong\tTag"
+			],
+			[
+				"User",
+				"user_form"
+			],
+			[
+				"re",
+				"registered"
+			],
+			[
+				"user",
+				"user_form"
+			],
+			[
+				"UserPro",
+				"UserProfileForm"
+			],
+			[
+				"Us",
+				"UserForm"
+			],
+			[
+				"U",
+				"URLField"
+			],
+			[
+				"cat",
+				"category_name_slug"
+			],
+			[
+				"ca",
+				"category_name_slug"
+			],
+			[
+				"int",
+				"initial"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"Ca",
+				"CategoryForm"
+			],
+			[
+				"cate",
+				"category"
+			],
+			[
+				"Cat",
+				"CategoryAdmin"
+			],
+			[
+				"slugif",
+				"slugify"
+			],
+			[
+				"python",
+				"python_cat"
+			],
+			[
+				"add",
+				"add_cat"
+			],
+			[
+				"STATIC",
+				"STATIC_URL"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<!DOCTYPE html>\n<head>\n  <title>Chelsea Mauricio</title>\n   <style>\n    img {\n      width: 200px;\n    }\n    body {\n      text-align: center;\n      background: url(\"https://acecchetto.files.wordpress.com/2012/12/bw-nyc-skyline.jpg\");\n      background-position: center;\n      background-size: cover;\n      color: white;\n      font-family:Lucida sans unicode;\n    }\n    p {\n      font-size: 22px;\n    }\n    input {\n      border: 0;\n      padding: 10px;\n      font-size: 18px;\n    }\n    input[type=\"submit\"] {\n      background:grey;\n      color: white;\n    }\n  </style>\n</head>\n<body>\n  <img src=\"https://i.imgur.com/DM9vNWn.jpg\">\n  <p> Hi! I'm Chelsea, a New York City teenager and future software engineer!</p>\n  <input type=\"email\" placeholder=\"Your email\">\n  <input type=\"submit\">\n</body>",
+			"settings":
+			{
+				"buffer_size": 788,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Brooklyn/chelsea_projects"
+	],
+	"file_history":
+	[
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/tutorial_project/settings.py",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/tutorial_project/urls.py",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/templates/edit_profile.html",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/templates/profile.html",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/tutorial_app/models.py",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/templates/base.html",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/templates/contact.html",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/tutorial_app/forms.py",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/templates/add_category.html",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/templates/login.html",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/tutorial_app/search.py",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/db.sqlite3",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/templates/category.html",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/templates/Index.html",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/tutorial_app/urls.py",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/templates/cat.html",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/templates/add-page.html",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/tutorial_app/views.py",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/templates/register.html",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/tutorial_app/templatetags/extras.py",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/tutorial_app/templatetags/__init__.py",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/static/css/form.css",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/templates/about.html",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/tutorial_app/admin.py",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/tutorial_project/manage.py",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/.gitignore",
+		"/C/Users/Brooklyn/Desktop/tutorialapp/mallove/Scripts/django-admin.py",
+		"/C/Users/Brooklyn/Desktop/yazmin smoking.html",
+		"/C/Users/Brooklyn/Desktop/Index.html",
+		"/C/Users/Brooklyn/Documents/Hello world - Yazmin, Joely/index.html",
+		"/C/Users/Brooklyn/Desktop/pymike/python01/Assignments/assiagnent6.5.py",
+		"/C/Users/Brooklyn/python01/Assignments/exercise2.py",
+		"/C/Users/Brooklyn/python01/Assignments/exercise.py",
+		"/C/Users/Brooklyn/Desktop/sharde/assignment 2.py",
+		"/C/Users/Brooklyn/Desktop/sharde/python01/Assignments/Assignment_3.3.py",
+		"/C/Users/Brooklyn/Desktop/sharde/assignment 3.2.py",
+		"/C/Users/Brooklyn/Documents/python01/Assignments/Assignment_2_pay_calc_Daniel_Orrego.py",
+		"/C/Users/Brooklyn/Documents/python01/Assignments/Assignment1_Daniel_Orrego.py"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"page",
+			"slug",
+			"search",
+			"triangle",
+			"Page"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 788,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								788,
+								788
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 36.0
+	},
+	"input":
+	{
+		"height": 45.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "index.html",
+	"replace":
+	{
+		"height": 68.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 177.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

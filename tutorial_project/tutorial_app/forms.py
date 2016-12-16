@@ -83,7 +83,7 @@ class PasswordRecoveryForm(forms.Form):
 		return self.cleaned_data["mail"]
 
 	def reset_password(self):
-		user = self.clean_email()
+		user = self.cleaned_data['email']
 
 		password = get_random_string(length = 8)
 
