@@ -82,7 +82,7 @@ if DEBUG:
     }
 if not DEBUG:
     DATABASES = {'default': dj_database_url.config(default='postgres:///djclass')}
-    DATABASES['default']['Engine'] = 'django_postgrespool'
+    DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
